@@ -1,0 +1,28 @@
+body {
+    background-color: #f8f9fa;
+}
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+.card {
+    width: 40%;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+.btn-predict {
+    background-color: #28a745;
+    color: white;
+}
+.btn-predict:hover {
+    background-color: #218838;
+}
+#predictionResult {
+    font-weight: bold;
+    color: #dc3545;
+    text-align: center;
+    margin-top: 15px;
+}
