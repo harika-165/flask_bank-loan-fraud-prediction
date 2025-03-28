@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bank Loan Fraud Detection</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <h2>Bank Loan Fraud Detection</h2>
+            <form action="/predict" method="post">
+                <label>Transaction Amount:</label>
+                <input type="number" name="amount" required>
+
+                <label>Original Account Balance:</label>
+                <input type="number" name="oldbalanceOrg" required>
+
+                <label>New Account Balance:</label>
+                <input type="number" name="newbalanceOrig" required>
+
+                <label>Transaction Type:</label>
+                <select name="type">
+                    {% for t in transaction_types %}
+                        <option value="{{ t }}">{{ t }}</option>
+                    {% endfor %}
+                </select>
+
+                <button type="submit">Predict Fraud</button>
+            </form>
+
+            {% if prediction_text %}
+                <div class="result">{{ prediction_text }}</div>
+            {% endif %}
+        </div>
+    </div>
+</body>
+</html>
